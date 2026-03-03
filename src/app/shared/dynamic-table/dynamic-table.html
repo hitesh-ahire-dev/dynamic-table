@@ -3,9 +3,9 @@
     <thead>
       <!-- Pyramid single header -->
       <tr>
-        <th [attr.colspan]="data.length * 3" class="pyramid-header">Pyramid</th>
+        <th [attr.colspan]="data().length * 3" class="pyramid-header">Pyramid</th>
       </tr>
-      <!-- Year Headers -->
+      <!-- Year Headers --> 
       <tr>
         <th *ngFor="let year of data()" colspan="3" class="year-head">{{ year.label }}</th>
       </tr>
