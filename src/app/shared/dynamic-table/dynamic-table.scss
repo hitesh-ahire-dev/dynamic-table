@@ -1,0 +1,50 @@
+.table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #e0e0e0;
+}
+
+.pyramid-header {
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: #d0d0d0;
+}
+
+.year-header {
+  background-color: #e8e8e8;
+}
+
+.rank-cell {
+  background-color: #f5f5f5;
+  text-align: left;
+}
+
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  text-align: right;
+  
+  &:focus {
+    outline: none;
+    border-color: #0056b3;
+  }
+}

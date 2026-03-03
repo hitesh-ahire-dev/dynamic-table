@@ -1,0 +1,47 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <!-- Pyramid single header -->
+      <tr>
+        <th [attr.colspan]="data.length * 3" class="pyramid-header">Pyramid</th>
+      </tr>
+      <!-- Year Headers -->
+      <tr>
+        <th *ngFor="let year of data()" colspan="3" class="year-head">{{ year.label }}</th>
+      </tr>
+      <!-- Detail Headers -->
+      <tr>
+      <ng-container *ngFor="let year of data()">
+          <th>Rank</th>
+          <th>Hrs/Month</th>
+          <th>FTE's</th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rank of ranksList()">
+        <ng-container *ngFor="let year of data()">
+          <!-- Rank Column for each year -->
+          <td class="rank-cell">{{ rank }}</td>
+          <!-- Inputs for each year -->
+          <td>
+            <input 
+              type="number" 
+              class="form-control"
+              [(ngModel)]="getItem(year.yearIndex, rank).hrsPerMonth" 
+              (ngModelChange)="onModelChange()"
+            />
+          </td>
+          <td>
+            <input 
+              type="number" 
+              class="form-control"
+              [(ngModel)]="getItem(year.yearIndex, rank).ftes" 
+              (ngModelChange)="onModelChange()"
+            />
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</div>
