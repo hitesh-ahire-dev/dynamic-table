@@ -1,4 +1,4 @@
-import { Component, input, output, Signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -21,12 +21,12 @@ export interface YearData {
   styleUrl: './dynamic-table.scss'
 })
 export class DynamicTable {
-  data = input<YearData[]>([]);
-  ranksList = input<string[]>([]);
-  dataChange = output<YearData[]>();
+  data = signal<YearData[]>([]);
+  ranksList = signal<string[]>([]);
+  dataChange = signal<YearData[]>([]);
 
   onModelChange() {
-    this.dataChange.emit(this.data());
+    this.dataChange.set(this.data());
   }
 
   getItem(yearIndex: number, rank: string): TableItem {
